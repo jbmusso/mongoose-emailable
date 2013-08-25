@@ -19,5 +19,9 @@
   ],
   "author": "Jean-Baptiste Musso",
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "mongoose-validator": "~0.2.2",
+    "nodemailer": "~0.5.2"
+  }
 }
