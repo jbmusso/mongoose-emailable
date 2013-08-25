@@ -14,10 +14,10 @@
     "mongoose",
     "plugin",
     "email",
-    "express",
-    "middleware"
+    "confirmation",
+    "express"
   ],
-  "author": "Jean-Baptiste Musso",
+  "author": "Jean-Baptiste Musso <jbmusso+github@gmail.com> (https://github.com/gulthor)",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
