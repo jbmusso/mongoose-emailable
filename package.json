@@ -1,0 +1,23 @@
+{
+  "name": "mongoose-emailable",
+  "version": "0.0.0",
+  "description": "Mongoose plugin for email with confirmation and express middleware",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gulthor/mongoose-emailable.git"
+  },
+  "keywords": [
+    "mongoose",
+    "plugin",
+    "email",
+    "express",
+    "middleware"
+  ],
+  "author": "Jean-Baptiste Musso",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
