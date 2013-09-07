@@ -1,6 +1,6 @@
 {
   "name": "mongoose-emailable",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Mongoose plugin for email with confirmation and express middleware",
   "main": "index.coffee",
   "scripts": {
