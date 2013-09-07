@@ -1,5 +1,4 @@
 crypto = require("crypto")
-
 nodemailer = require("nodemailer")
 validate = require("mongoose-validator").validate
 

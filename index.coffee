@@ -1,4 +1,8 @@
 plugin = require("./lib/plugin")
-routes = require("./lib/routes")
 
-module.exports = {plugin, routes}
+
+module.exports =
+  routes: (app, options) ->
+    require("./lib/routes")(app, options)
+
+  plugin: plugin
