@@ -47,13 +47,22 @@ UserSchema.plugin(emailablePlugin,
 ```coffeescript
 
 express = require("express")
-emailableRoutes = require("mongoose-emailable").routes
+emailable = require("mongoose-emailable")
 UserModel = require("./path/to/your/mongoose/usermodel")
 
 app = express()
 
-emailableRoutes.use(app,
+emailable.routes(app,
   model: UserModel # mandatory
+  confirm:
+    path: "/account/email/confirm"
+    template: "emailconfirmation.html"
+    messages:
+      json: "Cannot confirm email address with JSON GET."
+      error500: "An error occured on our side while validating this email address. Please, try refreshing this page or try again later!"
+      invalidCombination: "Invalid email/token combination"
+      alreadyConfirmed: (user) ->
+        return "#{user.email.address} has already been confirmed"
 )
 ```
 
@@ -74,14 +83,17 @@ And you're set! Users will receive an email asking for confirmation when registe
 
 ### Express route
 
-* Settings
-  * `model`: any mongoose model class, most likely a User model kind.
-  
-* Options
+#### Settings
+
+* `model`: any mongoose model class, most likely a User model kind.
+* `confirm`: confirm route settings
   * `path`: path to email confirmation page (default: /account/email/confirm)
   * `template`: template to use when rendering the email confirmation page (defaults to a simple text page)
-  * `reqHttpFields`: any fields in express `req` object that you wish to automatically pass to `res.locals`. Simply pass an object where keys are `req` fields and values are `res.locals` fields (for example, passing `{ user: loggedUser }` will set the value of `req.user` to `res.locals.loggedUser`.
-  * `middlewares`: array of express middlewares you wish to pass to the route.
+  * `messages`: object of custom confirmation messages (`json` string, `error500` string, `invalidCombination` string and `alreadyConfirmed` function with `user`as a parameter)
+  
+#### Options
+* `reqHttpFields`: any fields in express `req` object that you wish to automatically pass to `res.locals`. Simply pass an object where keys are `req` fields and values are `res.locals` fields (for example, passing `{ user: loggedUser }` will set the value of `req.user` to `res.locals.loggedUser`.
+* `middlewares`: array of express middlewares you wish to pass to the route.
 
 
 ## Mongoose plugin methods and statics
